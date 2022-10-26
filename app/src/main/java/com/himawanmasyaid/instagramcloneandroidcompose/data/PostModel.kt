@@ -45,3 +45,8 @@ fun getPostList(): List<PostModel> {
         ),
     )
 }
+
+fun postDetail(id: Int) : PostModel {
+    val response = getPostList().findLast { it.id == id }
+    return response ?: PostModel(0, AccountModel(0))
+}

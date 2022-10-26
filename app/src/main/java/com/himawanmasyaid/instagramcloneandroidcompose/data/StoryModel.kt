@@ -28,3 +28,8 @@ fun getStoryList(): List<StoryModel> {
 
     )
 }
+
+fun storyDetail(id: Int): StoryModel {
+    val response = getStoryList().findLast { it.id == id }
+    return response ?: StoryModel(0, AccountModel(0))
+}
