@@ -1,4 +1,4 @@
-package com.himawanmasyaid.instagramcloneandroidcompose
+package com.himawanmasyaid.instagramcloneandroidcompose.ui
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
