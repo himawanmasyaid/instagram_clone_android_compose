@@ -1,18 +1,18 @@
 package com.himawanmasyaid.instagramcloneandroidcompose.ui.home
 
-import android.content.res.Configuration
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.semantics.Role
-import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.himawanmasyaid.instagramcloneandroidcompose.R
+import com.himawanmasyaid.instagramcloneandroidcompose.data.getPostList
 import com.himawanmasyaid.instagramcloneandroidcompose.ui.theme.InstagramCloneAndroidComposeTheme
 
 @Composable
@@ -52,29 +52,31 @@ fun HomeTopAppBar() {
 
 @Composable
 fun HomeContentView(
-    modifier: Modifier = Modifier,
-    contentPadding: PaddingValues = PaddingValues(0.dp),
-    ) {
+) {
+    val posts = remember { getPostList() }
     LazyColumn(
-        modifier = modifier,
-        contentPadding = contentPadding,
-        ) {
-//        HomeStoryList()
-//        HomePostList()
+        modifier = Modifier
+            .fillMaxHeight()
+            .fillMaxWidth()
+    ) {
+
+//        item {
+//            //        HomeStoryList()
+//        }
+
+        // home post list
+        items(items = posts, itemContent = {
+            PostCardView(
+                post = it
+            )
+        })
+
     }
 }
 
 @Composable
 fun HomeStoryList() {
     Row() {
-
-    }
-}
-
-@Composable
-fun HomePostList() {
-    Column() {
-
     }
 }
 

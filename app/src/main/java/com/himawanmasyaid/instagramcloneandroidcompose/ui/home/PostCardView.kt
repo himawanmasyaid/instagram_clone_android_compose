@@ -21,7 +21,7 @@ import com.himawanmasyaid.instagramcloneandroidcompose.data.postDetail
 
 
 @Composable
-fun PostCardView(post: PostModel = postDetail(1)) {
+fun PostCardView(post: PostModel) {
     Column() {
         // profile picture and username
         Row(
@@ -146,5 +146,7 @@ fun PostCardView(post: PostModel = postDetail(1)) {
 @Preview(showBackground = true)
 @Composable
 fun PreviewPostCardView() {
-    PostCardView()
+    PostCardView(
+        postDetail(1)
+    )
 }

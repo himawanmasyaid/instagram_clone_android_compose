@@ -10,6 +10,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.himawanmasyaid.instagramcloneandroidcompose.ui.home.HomeView
 import com.himawanmasyaid.instagramcloneandroidcompose.ui.theme.InstagramCloneAndroidComposeTheme
 
 class MainActivity : ComponentActivity() {
@@ -18,12 +19,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             InstagramCloneAndroidComposeTheme {
                 // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colors.background
-                ) {
-                    Greeting("Android")
-                }
+                HomeView()
             }
         }
     }
