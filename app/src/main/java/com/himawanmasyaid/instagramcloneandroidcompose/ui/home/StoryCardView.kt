@@ -16,10 +16,12 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.himawanmasyaid.instagramcloneandroidcompose.data.AccountModel
 import com.himawanmasyaid.instagramcloneandroidcompose.R
+import com.himawanmasyaid.instagramcloneandroidcompose.data.StoryModel
 import com.himawanmasyaid.instagramcloneandroidcompose.data.accountDetail
+import com.himawanmasyaid.instagramcloneandroidcompose.data.storyDetail
 
 @Composable
-fun StoryCardView(account: AccountModel) {
+fun StoryCardView(story: StoryModel) {
     Column(
         modifier = Modifier
             .padding(10.dp)
@@ -40,7 +42,7 @@ fun StoryCardView(account: AccountModel) {
             )
 
             Image(
-                painter = painterResource(id = account.profilePicture),
+                painter = painterResource(id = story.account.profilePicture),
                 contentDescription = null,
                 modifier = Modifier
                     .size(56.dp)
@@ -59,7 +61,7 @@ fun StoryCardView(account: AccountModel) {
         )
 
         Text(
-            text = account.username,
+            text = story.account.username,
             maxLines = 1,
             overflow = TextOverflow.Ellipsis // ellipsis
         )
@@ -70,6 +72,6 @@ fun StoryCardView(account: AccountModel) {
 @Composable
 fun PreviewStoryCardView() {
     StoryCardView(
-        accountDetail(2)
+        storyDetail(id = 1)
     )
 }

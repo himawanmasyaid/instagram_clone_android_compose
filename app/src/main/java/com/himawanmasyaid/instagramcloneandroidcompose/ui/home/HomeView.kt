@@ -3,6 +3,7 @@ package com.himawanmasyaid.instagramcloneandroidcompose.ui.home
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Divider
 import androidx.compose.runtime.Composable
@@ -15,6 +16,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.himawanmasyaid.instagramcloneandroidcompose.R
 import com.himawanmasyaid.instagramcloneandroidcompose.data.getPostList
+import com.himawanmasyaid.instagramcloneandroidcompose.data.getStoryList
 import com.himawanmasyaid.instagramcloneandroidcompose.ui.theme.InstagramCloneAndroidComposeTheme
 import com.himawanmasyaid.instagramcloneandroidcompose.ui.theme.lineColor
 
@@ -62,16 +64,6 @@ fun HomeTopAppBar() {
                         .height(24.dp),
                 )
 
-                // notification
-                Image(
-                    painter = painterResource(id = R.drawable.ic_heart_baseline_black),
-                    contentDescription = "notification",
-                    Modifier
-                        .padding(end = 14.dp)
-                        .width(24.dp)
-                        .height(24.dp),
-                )
-
                 // direct message
                 Image(
                     painter = painterResource(id = R.drawable.ic_messager),
@@ -102,9 +94,9 @@ fun HomeContentView(
             .fillMaxWidth()
     ) {
 
-//        item {
-//            //        HomeStoryList()
-//        }
+        item {
+            HomeStoryList()
+        }
 
         // home post list
         items(items = posts, itemContent = {
@@ -118,7 +110,21 @@ fun HomeContentView(
 
 @Composable
 fun HomeStoryList() {
-    Row() {
+
+    val storys = remember { getStoryList() }
+
+    LazyRow(
+        modifier = Modifier
+            .fillMaxWidth()
+    ) {
+        items(
+            items = storys,
+            itemContent = {
+                StoryCardView(
+                    story = it
+                )
+            }
+        )
     }
 }
 
