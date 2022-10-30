@@ -18,6 +18,9 @@ import androidx.compose.ui.unit.dp
 import com.himawanmasyaid.instagramcloneandroidcompose.R
 import com.himawanmasyaid.instagramcloneandroidcompose.data.PostModel
 import com.himawanmasyaid.instagramcloneandroidcompose.data.postDetail
+import com.himawanmasyaid.instagramcloneandroidcompose.ui.theme.InstagramTypography
+import com.himawanmasyaid.instagramcloneandroidcompose.ui.theme.MontserratBold
+import com.himawanmasyaid.instagramcloneandroidcompose.ui.theme.boldTextLightStyle
 
 
 @Composable
@@ -49,10 +52,12 @@ fun PostCardView(post: PostModel) {
                 // username
                 Text(
                     text = post.account.username,
+                    style = InstagramTypography.h3
                 )
                 // location
                 Text(
                     text = post.location,
+                    style = InstagramTypography.body2
                 )
             }
 
@@ -126,7 +131,10 @@ fun PostCardView(post: PostModel) {
             // span style for username
             val spanStyles = listOf(
                 AnnotatedString.Range(
-                    SpanStyle(fontWeight = FontWeight.Bold),
+                    SpanStyle(
+                        fontWeight = FontWeight.Bold,
+                        fontFamily = MontserratBold
+                    ),
                     start = 0,
                     end = post.account.username.length
                 )
